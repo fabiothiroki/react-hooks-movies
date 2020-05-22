@@ -21,7 +21,7 @@ export const App = () => {
 
   return (
     <div className="wrapper">
-      <h2><strong>All Games<span>( 4 )</span></strong></h2>
+      <h2><strong>Movies</strong></h2>
       <div className="cards">
       {loading && !errorMessage ? (
          <span>loading...</span>
