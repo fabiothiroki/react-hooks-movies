@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/fabiothiroki/react-hooks-movies/workflows/Node.js%20CI/badge.svg?branch=master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
