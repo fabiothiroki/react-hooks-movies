@@ -1,9 +1,29 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitForElementToBeRemoved } from '@testing-library/react';
 import App from './App';
+import { fetchMovies } from '../../api/api'; 
 
-test('renders learn react link', () => {
+jest.mock('../../api/api');
+
+const mockReponse = {
+  "Search": [{
+    "Title": "Avengers: Infinity War", 
+    "Year": "2018", 
+    "imdbID": "tt4154756", 
+    "Type": "movie", 
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg" 
+  }],
+  "totalResults": "3964",
+  "Response": "True"
+};
+
+beforeEach(() => {
+  fetchMovies.mockResolvedValueOnce(Promise.resolve(mockReponse));
+});
+
+test('renders movies', async () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/loading/i);
-  expect(linkElement).toBeInTheDocument();
+  
+  expect(fetchMovies).toHaveBeenCalledTimes(1);
+  await waitForElementToBeRemoved(() => getByText(/loading/i));
 });
