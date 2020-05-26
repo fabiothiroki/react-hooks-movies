@@ -21,9 +21,11 @@ beforeEach(() => {
   fetchMovies.mockResolvedValueOnce(Promise.resolve(mockReponse));
 });
 
-test('renders movies', async () => {
+test('renders loading first, then movies', async () => {
   const { getByText } = render(<App />);
   
+  expect(getByText(/loading/i)).toBeTruthy();
   expect(fetchMovies).toHaveBeenCalledTimes(1);
   await waitForElementToBeRemoved(() => getByText(/loading/i));
+  expect(getByText(/Avengers/i)).toBeTruthy();
 });
