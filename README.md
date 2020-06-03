@@ -1,5 +1,5 @@
 # React Hooks Movies
-A cool interface for [The Open Movie Database API](http://omdbapi.com/).
+A cool simple interface for [The Open Movie Database API](http://omdbapi.com/).
 
 ![Node.js CI](https://github.com/fabiothiroki/react-hooks-movies/workflows/Node.js%20CI/badge.svg?branch=master)
 
