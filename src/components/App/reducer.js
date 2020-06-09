@@ -8,9 +8,9 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_MOVIES_SUCCESS":
       return {
-        ...state,
         loading: false,
-        movies: action.payload
+        movies: action.payload,
+        errorMessage: null,
       };
     default:
       return state;
