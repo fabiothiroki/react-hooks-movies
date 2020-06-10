@@ -23,15 +23,20 @@ export const App = () => {
     <div className="wrapper">
       <h2><strong>Movies</strong></h2>
       <div className="cards">
-      {loading && !errorMessage ? (
-         <span>loading...</span>
-         ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
-        )}
+
+      {loading &&
+        <span>loading...</span>
+      }
+
+      {errorMessage &&
+        <span>{errorMessage}</span>
+      }
+
+      {movies &&
+        movies.map((movie, index) => (
+          <Movie key={`${index}-${movie.Title}`} movie={movie} />
+        ))
+      }
 
       </div>
     </div>
